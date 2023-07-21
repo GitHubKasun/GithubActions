@@ -15,7 +15,25 @@ env:
 jobs:
   mainjob:
     name: "Print Env"
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
+
+    env:
+      Greetings: "Hi"
+      testvar: "testvar2"
+
+    steps:
+      - name: Print Env
+        run: |
+          echo "Greetings: ${{ env.Greetings }}"
+          echo "testvar: ${{ env.testvar }}"
+          echo "DAY_OF_WEEK: ${{ env.DAY_OF_WEEK }}"
+        env:
+          testvar: "testvar3"
+          First_Name: "John"
+    
+  second-job:
+    name: "Print Env"
+    runs-on: arc-runner-set
 
     env:
       Greetings: "Hi"
