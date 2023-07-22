@@ -49,3 +49,12 @@ jobs:
         env:
           testvar: "testvar3"
           First_Name: "John"
+  
+  report-url:
+    name: print report url
+    runs-on: arc-runner-set
+
+    steps:
+      - name: print report url
+        run: |
+          echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
